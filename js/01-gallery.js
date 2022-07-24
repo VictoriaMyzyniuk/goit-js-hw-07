@@ -50,6 +50,9 @@ function onModalOpen(evt) {
        <img src="${evt.target.dataset.source}">
   `,
     {
+      onShow: () => {
+        window.addEventListener("keydown", onEscapePress);
+      },
       onClose: () => {
         window.removeEventListener("keydown", onEscapePress);
       },
@@ -57,7 +60,6 @@ function onModalOpen(evt) {
   );
 
   bigImgEl.show();
-  window.addEventListener("keydown", onEscapePress);
 }
 
 function onModalClose() {
